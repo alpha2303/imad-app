@@ -5,23 +5,58 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-var articleOne = {
-    title : "Rahul's Article V1.0",
-    heading : "Article One",
-    date : "Aug 9th, 2016",
-    content : 
-    `
-     <p>
-          ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.
-     </p>
-     <p>  
-          ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.
-     </p>
-     <p>
-          ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.
-     </p>
+var articles = {
+    articleOne : {
+        title : "Rahul's Article V1.0",
+        heading : "Article One",
+        date : "Aug 9th, 2016",
+        content : 
+        `
+         <p>
+              ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.
+         </p>
+         <p>  
+              ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.
+         </p>
+         <p>
+              ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.
+         </p>
+         `
+    },
+    articleTwo : {
+        title : "Rahul's Article V2.0",
+        heading : "Article Two",
+        date : "Aug 9th, 2016",
+        content : 
+        `
+         <p>
+              ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.
+         </p>
+         <p>  
+              ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.
+         </p>
+         <p>
+              ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.
+         </p>
+         `
+    },
+    articleThree : {
+        title : "Rahul's Article V3.0",
+        heading : "Article Three",
+        date : "Aug 9th, 2016",
+        content : 
+        `
+         <p>
+              ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.
+         </p>
+         <p>  
+              ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.
+         </p>
+         <p>
+              ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.
+         </p>
      `
-     
+    },
 };
 
 function createTemplate(data){
@@ -67,7 +102,7 @@ app.get('/', function (req, res) {
 });
 
 app.get('/article-one', function (req, res){
-    res.send(createTemplate(articleOne))); 
+    res.send(createTemplate(articleOne)); 
 });
 
 app.get('/article-two', function (req, res){
