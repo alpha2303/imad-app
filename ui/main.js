@@ -3,13 +3,23 @@ var button = document.getElementById('counter');
 var counter = 0;
 button.onclick = function (){
     
-    // Make a request to counter and point.
+    // Create a request object
+    var request = new XMLHttpRequest();
     
     // Capture the response and store it in variable.
+    request.onreadystatechange = function () {
+       if(request.readyState === XMLHttpRequest.DONE){
+           // Take some action
+           if(request.readystate === 200){
+               var counter = request.responseText;
+               var span = document.getElementById('count');
+               span.innerHTML = counter.toString();
+           }
+       } 
+    };
     
-    // Render the variable in the corect span.
+    // Make a request
     
-    counter = counter + 1;
-    var span = document.getElementById('count');
-    span.innerHTML = counter.toString();
+    request.open('GET','http://rahulpavithran99.imad.hasura-app.io/counter',true);
+    request.send(null);
 };
