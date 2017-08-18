@@ -33,6 +33,7 @@ submit.onclick = function () {
            }
     }
     
+    };
     // Make a request
     var nameInput = document.getElementById('name');
     var name = nameInput.value;
@@ -40,6 +41,6 @@ submit.onclick = function () {
     request.send(null);
     
   // Make a request to the server and send a name
-    };
+    
   
 };
