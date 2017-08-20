@@ -13,60 +13,6 @@ var config = {
 var app = express();
 app.use(morgan('combined'));
 
-var articles = {
-    'article-one' : {
-        title : "Rahul's Article V1.0",
-        heading : "Article One",
-        date : "Aug 9th, 2016",
-        content : 
-        `
-         <p>
-              ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.
-         </p>
-         <p>  
-              ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.
-         </p>
-         <p>
-              ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.
-         </p>
-         `
-    },
-    'article-two' : {
-        title : "Rahul's Article V2.0",
-        heading : "Article Two",
-        date : "Aug 9th, 2016",
-        content : 
-        `
-         <p>
-              ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.
-         </p>
-         <p>  
-              ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.
-         </p>
-         <p>
-              ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.
-         </p>
-         `
-    },
-    'article-three' : {
-        title : "Rahul's Article V3.0",
-        heading : "Article Three",
-        date : "Aug 9th, 2016",
-        content : 
-        `
-         <p>
-              ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.
-         </p>
-         <p>  
-              ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.
-         </p>
-         <p>
-              ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.ThIs is my first HTML File.
-         </p>
-     `
-    },
-};
-
 function createTemplate(data){
     var title = data.title;
     var heading = data.heading;
