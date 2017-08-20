@@ -94,7 +94,7 @@ function createTemplate(data){
              </marquee>
          </h3>
          <div>
-             ${date}
+             ${date.toDateString()}
          </div>
          ${content}
         </div>
