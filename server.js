@@ -70,7 +70,7 @@ app.get('/hash/:input', function (req,res) {
    //final input+salt string is hashed 10k times. this is to prevent hackers from guessing the password from premade tables.
 });
 
-app.post('/create-user', function (req.res) {
+app.post('/create-user', function (req, res) {
     var username = req.body.username;
     var password = req.body.password;
     var salt = crypto.randomBytes(128).toString('hex');
