@@ -3,6 +3,7 @@ var morgan = require('morgan');
 var path = require('path');
 var Pool = require('pg').Pool;
 var crypto = require('crypto');
+var bodyParser = require('body-parser');
 
 var config = {
   user : 'rahulpavithran99',
@@ -13,7 +14,7 @@ var config = {
 
 var app = express();
 app.use(morgan('combined'));
-
+app.use(bodyParser.json());
 function createTemplate(data){
     var title = data.title;
     var heading = data.heading;
@@ -67,6 +68,21 @@ app.get('/hash/:input', function (req,res) {
    res.send(hashedString);
    
    //final input+salt string is hashed 10k times. this is to prevent hackers from guessing the password from premade tables.
+});
+
+app.post('/create-user', function (req.res) {
+    var username = req.body.username;
+    var password = req.body.password;
+    var salt = crypto.randomBytes(128).toString('hex');
+    var dbstring = hash(password, salt);
+    pool.query('INSERT INTO "user" (username, password) VALUES ($1, $1)', [username, dbstring], function(err, result) {
+        if(err) {
+          res.status(500).send(err.toString());
+      }
+      else {
+          res.send("User successfully created : " + username);
+      }
+    });
 });
 
 var pool = new Pool(config);
