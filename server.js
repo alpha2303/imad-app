@@ -179,7 +179,7 @@ app.get('/submit-name', function (req, res){
    
 });
 
-app.get('/articles/:articleName', function (req, res){
+app.get('/articles', function (req, res){
    
    pool.query("SELECT * FROM articles WHERE title = $1", [req.params.articleName], function (err,result) {
       if(err){
@@ -191,7 +191,8 @@ app.get('/articles/:articleName', function (req, res){
           }
           else{
               var articleData = result.rows[0];
-               res.send(createTemplate(articleData)); 
+              res.setHeader('Content-Type', 'application/json');
+              res.send(JSON.parse(createTemplate(articleData))); 
           }
       }
        
