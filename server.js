@@ -86,7 +86,9 @@ app.post('/create-user', function (req, res) {
           res.status(500).send(err.toString());
       }
       else {
-          res.send('User successfully created : ' + username);
+          //res.send('User successfully created : ' + username);
+          res.setHeader('Content-Type', 'application/json');
+          res.send(JSON.parse('{"message":"User successfully created."}'));
       }
     });
 });
@@ -100,7 +102,9 @@ app.post('/login', function (req,res) {
         }
         else {
           if(result.rows.length === 0){
-              res.send(403).send('username/password is invalid!');
+              //res.send(403).send('username/password is invalid!');
+               res.setHeader('Content-Type', 'application/json');
+          res.send(JSON.parse('{"message":"Please verify details and try again."}'));
           }
           else{
           //Match password
@@ -114,7 +118,9 @@ app.post('/login', function (req,res) {
                      This operation creates a object on server which has auth, which has another object userId
                      hence a cookie is set with session id.
                   */
-                  res.send('Credentials are Correct');
+                  //res.send('Credentials are Correct');
+                   res.setHeader('Content-Type', 'application/json');
+          res.send(JSON.parse('{"message":"Credentials are correct."}'));
               }
               else{
                   res.send(403).send('username/password is invalid!');
