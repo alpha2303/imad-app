@@ -20,10 +20,11 @@ body {
 }
 
 .container {
+                            
                             max-width: 800px;
                             margin: 0 auto;
                             color: #3f464e;
-                            font-family: fantasy;
+                            font-family: 'Handlee', cursive;
                             padding-left: 20px;
                             padding-right: 20px;
                     }
