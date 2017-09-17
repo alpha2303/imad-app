@@ -203,7 +203,7 @@ app.get('/get-articles', function (req, res) {
 //articles[articleName] == {} content object for article one
 
 //get all article's
-pool.query("SELECT * from article ", function(err, result) {
+pool.query("SELECT * from articles ", function(err, result) {
 if (err) {
 console.error('Error executing query', err.stack);
 res.status(500).send(err.toString());
