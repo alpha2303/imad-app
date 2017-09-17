@@ -179,9 +179,9 @@ app.get('/submit-name', function (req, res){
    
 });
 
-app.get('/get-articles', function (req, res){
+app.get('/articles/:articleName', function (req, res){
    
-   pool.query("SELECT * FROM articles", function (err,result) {
+   pool.query("SELECT * FROM articles WHERE title = $1", [req.params.articleName], function (err,result) {
       if(err){
           res.status(500).send(err.toString());
       }
@@ -196,6 +196,35 @@ app.get('/get-articles', function (req, res){
       }
        
    });
+});
+
+app.get('/get-articles', function (req, res) {
+//articleName == article-one
+//articles[articleName] == {} content object for article one
+
+//get all article's
+pool.query("SELECT * from article ", function(err, result) {
+if (err) {
+console.error('Error executing query', err.stack);
+res.status(500).send(err.toString());
+} else {
+if(result.rows.length === 0)
+{
+res.status(400).send("Article not found");
+}
+else
+{
+//res.send(JSON.stringify(result));
+//res.send(JSON.stringify(result.rows));
+//var articleData = result.rows[0];
+//res.send(JSON.stringify(createTemplate(articleData)));
+res.setHeader('Content-Type', 'application/json');
+res.send(JSON.stringify(result.rows));
+}
+}
+console.log(result.rows)
+});
+
 });
 
 app.get('/ui/style.css', function (req, res) {
