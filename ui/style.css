@@ -24,6 +24,7 @@ body {
 .container {
                             background-color : #fff;
                             text-align : center;
+                            border-radius : 10px;
                             color : #3f464e;
                             font-family : 'Handlee', cursive;
                             padding-left : 20px;
