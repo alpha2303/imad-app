@@ -16,9 +16,8 @@ body {
 }
 
 .img-medium{ 
-    
     border : 3px;
-    border-radius : 50%;
+    border-radius : 50px;
     margin-top : 20px;
 }
 
