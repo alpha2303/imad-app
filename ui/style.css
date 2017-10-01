@@ -16,7 +16,6 @@ body {
 }
 
 .img-medium{ 
-    
     border-radius : 50%;
     width: 150px;
     height : 150px;
@@ -38,8 +37,6 @@ h3{
     border-width : 5px;
     border-style : dashed;
     border-color : #13B5AF;
-   
-    
 }
   
 
